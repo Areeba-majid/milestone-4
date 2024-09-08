@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editable Resume</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .section {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .content {
+      white-space: pre-wrap;
+      user-select: text;
+    }
+
+    .edit-button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section" id="personal-info">
+    <div class="section-title">Personal Information</div>
+    <div class="content" contenteditable="true">
+      Name: Areeba<br>
+      Email: areeba22@gmail.com<br>
+      Phone: 03232192483<br>
+    </div>
+    <button class="edit-button" onclick="editSection('personal-info')">Edit</button>
+  </div>
+
+  <div class="section" id="experience">
+    <div class="section-title">Experience</div>
+    <div class="content" contenteditable="true">
+      <h2>Web Develper</h2>
+      <p>Meta Office | 2022 - Present</p>
+      <p>Teacher GIAIC</p>
+      <ul>
+        <li>Developed and maintained web applications using React.js and Node.js.</li>
+        <li>Collaborated with cross-functional teams to deliver high-quality products.</li>
+      </ul>
+    </div>
+    <button class="edit-button" onclick="editSection('experience')">Edit</button>
+  </div>
+
+  <div class="section" id="education">
+    <div class="section-title">Education</div>
+    <div class="content" contenteditable="true">
+      <h2>Bachelor of Science in Computer Science</h2>
+      <p>karachi University | 2021</p>
+    </div>
+    <button class="edit-button" onclick="editSection('education')">Edit</button>
+  </div>
+
+  <script>
+    function editSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      const contentElement = section.querySelector('.content');
+
+      // Toggle the contenteditable attribute to enable/disable editing
+      contentElement.setAttribute('contenteditable', !contentElement.hasAttribute('contenteditable'));
+    }
+  </script>
+
+</body>
+</html>
